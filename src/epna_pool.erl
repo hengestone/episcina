@@ -306,6 +306,8 @@ connect(Fun) ->
     Result = {ok, C} = Fun(),
     if
         erlang:is_pid(C) ->
-            erlang:link(C)
+            erlang:link(C);
+        true             ->
+            ok
     end,
     Result.
